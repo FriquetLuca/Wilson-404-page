@@ -2,6 +2,10 @@ $bg-color: #303034;
 $txt-color: #fefce6;
 $browser-context: 16; // Default browser size of em
 
+$h1-size: 1.1;
+$p-size: 0.8;
+$btn-size: 0.9;
+
 @function toEm($pixels, $context: $browser-context) {
   @if (unitless($pixels)) {
     $pixels: $pixels * 1px;
@@ -21,6 +25,7 @@ body, html {
     width: 100%;
     background-color: $bg-color;
     color: $txt-color;
+    font-family: sans-serif;
 }
 section {
     margin-left: auto;
@@ -32,65 +37,75 @@ section {
 img {
     margin-left: auto;
     margin-right: auto;
-    width: calc(100% - 2em);
-    max-width: 500px;
+    width: calc(100% - 2vh);
+    max-width: 400px;
 }
 article {
-    margin-left: 1em;
-    margin-right: 1em;
+    margin-left: 5vh;
+    margin-right: 5vh;
     text-align: left;
 }
 .btn {
-    bottom: 1em;
     margin-left: auto;
     margin-right: auto;
     width: 10em;
     height: 2.8em;
     padding: 0.25em;
     border: none;
+    cursor: pointer;
+    box-shadow: 0 5px rgb(58, 58, 58);
     border-radius: 20px;
     background-color: lighten($bg-color, 25%);
     color: $txt-color;
+    font-weight: bold;
+    display: inline-block;
+    transition: all 0.2s linear;
+    transition: background-color 0.2s ease;
+    &:hover {
+        transform: translateY(3px);
+        box-shadow: 0 2px rgb(58, 58, 58);
+        background-color: lighten($bg-color, 15%);
+    }
 }
 
 @media only screen and (max-width: 768px) {
     .btn {
-        @include pFontSize($size: 1.0);
+        @include pFontSize($size: $btn-size * 0.9);
     }
     article {
         h1 {
-            @include pFontSize($size: 1.1);
+            @include pFontSize($size: $h1-size * 0.9);
         }
         p {
-            @include pFontSize($size: 0.9);
+            @include pFontSize($size: $p-size * 0.9);
         }
     }
 }
 /* ~1k devices */
 @media only screen and (min-width: 769px) and (max-width: 1920px) {
     .btn {
-        @include pFontSize($size: 1.15);
+        @include pFontSize($size: $btn-size);
     }
     article {
         h1 {
-            @include pFontSize($size: 1.25);
+            @include pFontSize($size: $h1-size);
         }
         p {
-            @include pFontSize($size: 1.1);
+            @include pFontSize($size: $p-size);
         }
     }
 }
 /* > 1k+ device */
 @media only screen and (min-width: 1921px) {
     .btn {
-        @include pFontSize($size: 1.3);
+        @include pFontSize($size: $btn-size * 1.1);
     }
     article {
         h1 {
-            @include pFontSize($size: 1.5);
+            @include pFontSize($size: $h1-size * 1.1);
         }
         p {
-            @include pFontSize($size: 1.25);
+            @include pFontSize($size: $p-size * 1.1);
         }
     }
 }

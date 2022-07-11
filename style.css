@@ -4,6 +4,7 @@ body, html {
   width: 100%;
   background-color: #303034;
   color: #fefce6;
+  font-family: sans-serif;
 }
 
 section {
@@ -17,61 +18,71 @@ section {
 img {
   margin-left: auto;
   margin-right: auto;
-  width: calc(100% - 2em);
-  max-width: 500px;
+  width: calc(100% - 2vh);
+  max-width: 400px;
 }
 
 article {
-  margin-left: 1em;
-  margin-right: 1em;
+  margin-left: 5vh;
+  margin-right: 5vh;
   text-align: left;
 }
 
 .btn {
-  bottom: 1em;
   margin-left: auto;
   margin-right: auto;
   width: 10em;
   height: 2.8em;
   padding: 0.25em;
   border: none;
+  cursor: pointer;
+  box-shadow: 0 5px rgb(58, 58, 58);
   border-radius: 20px;
   background-color: #6d6d76;
   color: #fefce6;
+  font-weight: bold;
+  display: inline-block;
+  transition: all 0.2s linear;
+  transition: background-color 0.2s ease;
+}
+.btn:hover {
+  transform: translateY(3px);
+  box-shadow: 0 2px rgb(58, 58, 58);
+  background-color: #55555c;
 }
 
 @media only screen and (max-width: 768px) {
   .btn {
-    font-size: 1.5em;
+    font-size: 1.215em;
   }
   article h1 {
-    font-size: 1.65em;
+    font-size: 1.485em;
   }
   article p {
-    font-size: 1.35em;
+    font-size: 1.08em;
   }
 }
 /* ~1k devices */
 @media only screen and (min-width: 769px) and (max-width: 1920px) {
   .btn {
-    font-size: 1.725em;
+    font-size: 1.35em;
   }
   article h1 {
-    font-size: 1.875em;
+    font-size: 1.65em;
   }
   article p {
-    font-size: 1.65em;
+    font-size: 1.2em;
   }
 }
 /* > 1k+ device */
 @media only screen and (min-width: 1921px) {
   .btn {
-    font-size: 1.95em;
+    font-size: 1.485em;
   }
   article h1 {
-    font-size: 2.25em;
+    font-size: 1.815em;
   }
   article p {
-    font-size: 1.875em;
+    font-size: 1.32em;
   }
 }
